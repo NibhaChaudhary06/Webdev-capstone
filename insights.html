@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insights – Smart Expense Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════ NAVBAR ══════════════════ -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span>💰</span> Expense Tracker
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="add-expense.html">➕ Add Expense</a></li>
+        <li><a href="charts.html">📊 Charts</a></li>
+        <li><a href="insights.html" class="active">💡 Insights</a></li>
+        <li><a href="contact.html">📬 Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ══════════════════ MAIN CONTENT ══════════════════ -->
+  <main>
+
+    <div class="page-header">
+      <h1>💡 Spending Insights</h1>
+      <p>Rule-based AI insights that help you understand your spending habits.</p>
+    </div>
+
+    <!-- Spinner while loading -->
+    <div id="spinner" class="spinner"></div>
+
+    <!-- Insights Grid (filled by JS) -->
+    <div class="insights-grid" id="insightsGrid" style="display:none;"></div>
+
+    <!-- Monthly summary section -->
+    <div id="summarySection" style="display:none;">
+      <p class="section-title">📅 Monthly Breakdown</p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>No. of Expenses</th>
+              <th>Total Spent (₹)</th>
+            </tr>
+          </thead>
+          <tbody id="monthlyTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Error state -->
+    <div id="errorState" class="empty-state" style="display:none;">
+      <div class="icon">⚠️</div>
+      <p>Could not load data. Make sure the Flask backend is running.</p>
+    </div>
+
+  </main>
+
+  <!-- ══════════════════ FOOTER ══════════════════ -->
+  <footer>
+    <p>Smart Expense Tracker &copy; 2025 &nbsp;|&nbsp; Built with ❤️ using HTML, CSS, JS &amp; Flask</p>
+  </footer>
+
+  <script src="js/insights.js"></script>
+</body>
+</html>

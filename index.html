@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home – Smart Expense Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════ NAVBAR ══════════════════ -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span>💰</span> Expense Tracker
+      </div>
+
+      <!-- Hamburger button (shows on mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">🏠 Home</a></li>
+        <li><a href="add-expense.html">➕ Add Expense</a></li>
+        <li><a href="charts.html">📊 Charts</a></li>
+        <li><a href="insights.html">💡 Insights</a></li>
+        <li><a href="contact.html">📬 Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ══════════════════ MAIN CONTENT ══════════════════ -->
+  <main>
+
+    <!-- Page Title -->
+    <div class="page-header">
+      <h1>📋 All Expenses</h1>
+      <p>Your complete expense log. Data is fetched live from the backend.</p>
+    </div>
+
+    <!-- Summary Cards – filled by JS -->
+    <div class="summary-cards">
+      <div class="card">
+        <div class="card-icon">💸</div>
+        <div class="card-info">
+          <h3>Total Spent</h3>
+          <p id="totalAmount">Loading…</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📝</div>
+        <div class="card-info">
+          <h3>Expenses</h3>
+          <p id="totalCount">Loading…</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏆</div>
+        <div class="card-info">
+          <h3>Top Category</h3>
+          <p id="topCategory">Loading…</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📅</div>
+        <div class="card-info">
+          <h3>Latest Date</h3>
+          <p id="latestDate">Loading…</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Expenses Table -->
+    <p class="section-title">📄 Expense List</p>
+
+    <!-- Spinner while loading -->
+    <div id="spinner" class="spinner"></div>
+
+    <!-- Table (hidden until data arrives) -->
+    <div class="table-wrapper" id="tableWrapper" style="display:none;">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Amount (₹)</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Note</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="expenseTableBody">
+          <!-- Rows injected by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Empty state (hidden by default) -->
+    <div id="emptyState" class="empty-state" style="display:none;">
+      <div class="icon">🗒️</div>
+      <p>No expenses yet. <a href="add-expense.html">Add your first one!</a></p>
+    </div>
+
+  </main>
+
+  <!-- ══════════════════ FOOTER ══════════════════ -->
+  <footer>
+    <p>Smart Expense Tracker &copy; 2025 &nbsp;|&nbsp; Built with ❤️ using HTML, CSS, JS &amp; Flask</p>
+  </footer>
+
+  <!-- ══════════════════ JAVASCRIPT ══════════════════ -->
+  <script src="js/main.js"></script>
+</body>
+</html>

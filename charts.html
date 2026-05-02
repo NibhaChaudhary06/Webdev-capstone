@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charts – Smart Expense Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- ══════════════════ NAVBAR ══════════════════ -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span>💰</span> Expense Tracker
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="add-expense.html">➕ Add Expense</a></li>
+        <li><a href="charts.html" class="active">📊 Charts</a></li>
+        <li><a href="insights.html">💡 Insights</a></li>
+        <li><a href="contact.html">📬 Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ══════════════════ MAIN CONTENT ══════════════════ -->
+  <main>
+
+    <div class="page-header">
+      <h1>📊 Spending Charts</h1>
+      <p>Visual breakdown of your expenses by category and date.</p>
+    </div>
+
+    <!-- Spinner while loading -->
+    <div id="spinner" class="spinner"></div>
+
+    <!-- Charts Grid (hidden until data loads) -->
+    <div class="charts-grid" id="chartsGrid" style="display:none;">
+
+      <!-- Pie Chart – category breakdown -->
+      <div class="chart-card">
+        <h3>🥧 Spending by Category</h3>
+        <canvas id="pieChart"></canvas>
+      </div>
+
+      <!-- Bar Chart – amount per category -->
+      <div class="chart-card">
+        <h3>📊 Amount per Category</h3>
+        <canvas id="barChart"></canvas>
+      </div>
+
+    </div>
+
+    <!-- Error state -->
+    <div id="errorState" class="empty-state" style="display:none;">
+      <div class="icon">⚠️</div>
+      <p>Could not load chart data. Make sure the Flask backend is running.</p>
+    </div>
+
+  </main>
+
+  <!-- ══════════════════ FOOTER ══════════════════ -->
+  <footer>
+    <p>Smart Expense Tracker &copy; 2025 &nbsp;|&nbsp; Built with ❤️ using HTML, CSS, JS &amp; Flask</p>
+  </footer>
+
+  <script src="js/charts.js"></script>
+</body>
+</html>

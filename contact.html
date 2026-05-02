@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Smart Expense Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════ NAVBAR ══════════════════ -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span>💰</span> Expense Tracker
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="add-expense.html">➕ Add Expense</a></li>
+        <li><a href="charts.html">📊 Charts</a></li>
+        <li><a href="insights.html">💡 Insights</a></li>
+        <li><a href="contact.html" class="active">📬 Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ══════════════════ MAIN CONTENT ══════════════════ -->
+  <main>
+
+    <div class="page-header">
+      <h1>📬 Contact Us</h1>
+      <p>Have a question or feedback? We'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-wrapper">
+
+      <!-- Left side: info -->
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>
+          Smart Expense Tracker is a college project built with ❤️ to help
+          students manage their daily expenses easily. If you face any issues
+          or have suggestions, feel free to reach out.
+        </p>
+
+        <div class="contact-detail">
+          <span class="icon">📧</span>
+          <span>rautela.prakriti23@gmail.com</span>
+        </div>
+        <div class="contact-detail">
+          <span class="icon">📍</span>
+          <span>Rishihood University, Sonipat, Haryana</span>
+        </div>
+        <div class="contact-detail">
+          <span class="icon">🐙</span>
+          <span>github.com/your-username/expense-tracker</span>
+        </div>
+        <div class="contact-detail">
+          <span class="icon">📱</span>
+          <span>+91 7895612574</span>
+        </div>
+      </div>
+
+      <!-- Right side: contact form -->
+      <div class="form-card" style="margin:0;">
+        <div class="form-grid">
+
+          <div class="form-group full-width">
+            <label for="contactName">Your Name</label>
+            <input type="text" id="contactName" placeholder="e.g. Rahul Kumar" />
+          </div>
+
+          <div class="form-group full-width">
+            <label for="contactEmail">Email Address</label>
+            <input type="email" id="contactEmail" placeholder="e.g. rahul@gmail.com" />
+          </div>
+
+          <div class="form-group full-width">
+            <label for="contactMsg">Message</label>
+            <textarea id="contactMsg" placeholder="Write your message here…" rows="4"></textarea>
+          </div>
+
+          <div class="form-group full-width">
+            <button class="btn-primary" onclick="sendMessage()">📤 Send Message</button>
+          </div>
+
+          <div class="form-group full-width">
+            <div class="alert" id="contactAlert"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ══════════════════ FOOTER ══════════════════ -->
+  <footer>
+    <p>Smart Expense Tracker &copy; 2025 &nbsp;|&nbsp; Built with ❤️ using HTML, CSS, JS &amp; Flask</p>
+  </footer>
+
+  <script>
+    // ── Hamburger toggle ─────────────────────────────────────────────
+    document.getElementById("hamburger").addEventListener("click", function() {
+      document.getElementById("navLinks").classList.toggle("open");
+    });
+
+    // ── Fake "send" (this is a frontend-only demo form) ──────────────
+    function sendMessage() {
+      const name    = document.getElementById("contactName").value.trim();
+      const email   = document.getElementById("contactEmail").value.trim();
+      const message = document.getElementById("contactMsg").value.trim();
+      const alert   = document.getElementById("contactAlert");
+
+      if (!name || !email || !message) {
+        alert.textContent = "❌ Please fill in all fields before sending.";
+        alert.className   = "alert error";
+        alert.style.display = "block";
+        return;
+      }
+
+      // Simulate a successful send
+      alert.textContent   = "✅ Thank you, " + name + "! Your message has been received.";
+      alert.className     = "alert success";
+      alert.style.display = "block";
+
+      // Clear form
+      document.getElementById("contactName").value  = "";
+      document.getElementById("contactEmail").value = "";
+      document.getElementById("contactMsg").value   = "";
+    }
+  </script>
+
+</body>
+</html>
