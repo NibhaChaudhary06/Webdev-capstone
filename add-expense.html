@@ -8,55 +8,44 @@
 </head>
 <body>
 
-  <!-- ══════════════════ NAVBAR ══════════════════ -->
   <nav class="navbar">
     <div class="nav-container">
-      <div class="nav-logo">
-        <span>💰</span> Expense Tracker
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-logo"><span class="logo-icon">💰</span> Expense Tracker</div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">🏠 Home</a></li>
         <li><a href="add-expense.html" class="active">➕ Add Expense</a></li>
+        <li><a href="budget.html">💼 Budget</a></li>
         <li><a href="charts.html">📊 Charts</a></li>
         <li><a href="insights.html">💡 Insights</a></li>
         <li><a href="contact.html">📬 Contact</a></li>
       </ul>
     </div>
   </nav>
-
-  <!-- ══════════════════ MAIN CONTENT ══════════════════ -->
   <main>
 
     <div class="page-header">
       <h1>➕ Add New Expense</h1>
-      <p>Fill in the details below. Data will be sent to the backend via a POST API.</p>
+      <p>Fill in the form — data is sent to the backend using a <strong>POST</strong> API call.</p>
     </div>
 
-    <!-- Form Card -->
     <div class="form-card">
-      <!-- NOTE: We use a <div> instead of <form> to handle submit manually via JS -->
       <div class="form-grid">
 
-        <!-- Title -->
         <div class="form-group full-width">
           <label for="title">Expense Title *</label>
           <input type="text" id="title" placeholder="e.g. Grocery Shopping" />
         </div>
 
-        <!-- Amount -->
         <div class="form-group">
           <label for="amount">Amount (₹) *</label>
-          <input type="number" id="amount" placeholder="e.g. 500" min="1" />
+          <input type="number" id="amount" placeholder="e.g. 500" min="1" step="0.01" />
         </div>
 
-        <!-- Category -->
         <div class="form-group">
           <label for="category">Category *</label>
           <select id="category">
-            <option value="">-- Select Category --</option>
+            <option value="">— Select Category —</option>
             <option value="Food">🍔 Food</option>
             <option value="Travel">🚌 Travel</option>
             <option value="Rent">🏠 Rent</option>
@@ -68,26 +57,22 @@
           </select>
         </div>
 
-        <!-- Date -->
         <div class="form-group">
           <label for="date">Date *</label>
           <input type="date" id="date" />
         </div>
 
-        <!-- Note (optional) -->
         <div class="form-group">
           <label for="note">Note (optional)</label>
           <input type="text" id="note" placeholder="Any extra info…" />
         </div>
 
-        <!-- Submit Button -->
         <div class="form-group full-width">
           <button class="btn-primary" id="submitBtn" onclick="submitExpense()">
             ➕ Add Expense
           </button>
         </div>
 
-        <!-- Alert message shown after submit -->
         <div class="form-group full-width">
           <div class="alert" id="alertMsg"></div>
         </div>
@@ -97,9 +82,8 @@
 
   </main>
 
-  <!-- ══════════════════ FOOTER ══════════════════ -->
   <footer>
-    <p>Smart Expense Tracker &copy; 2025 &nbsp;|&nbsp; Built with ❤️ using HTML, CSS, JS &amp; Flask</p>
+    <p>Smart Expense Tracker &copy; 2025 &nbsp;|&nbsp; Made with using HTML, CSS, JS &amp; Flask</p>
   </footer>
 
   <script src="js/add-expense.js"></script>
