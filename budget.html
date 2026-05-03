@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget – Smart Expense Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo"><span class="logo-icon">💰</span> Expense Tracker</div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="add-expense.html">➕ Add Expense</a></li>
+        <li><a href="budget.html" class="active">💼 Budget</a></li>
+        <li><a href="charts.html">📊 Charts</a></li>
+        <li><a href="insights.html">💡 Insights</a></li>
+        <li><a href="contact.html">📬 Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+
+    <div class="page-header">
+      <h1>💼 Budget Manager</h1>
+      <p>Set monthly limits per category and see how much you've actually spent.</p>
+    </div>
+
+    <div class="budget-summary">
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <div class="card-info"><h3>Total Budget</h3><p id="totalBudget">…</p></div>
+      </div>
+      <div class="card">
+        <div class="card-icon">💸</div>
+        <div class="card-info"><h3>Total Spent</h3><p id="budgetTotalSpent">…</p></div>
+      </div>
+      <div class="card">
+        <div class="card-icon">✅</div>
+        <div class="card-info"><h3>Remaining</h3><p id="budgetRemaining">…</p></div>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚠️</div>
+        <div class="card-info"><h3>Over Budget</h3><p id="overCount">…</p></div>
+      </div>
+    </div>
+    <div class="budget-grid">
+
+      <div>
+        <p class="section-title">📊 Category Budget vs Actual</p>
+        <div id="spinner1" class="spinner"></div>
+        <div class="budget-items" id="budgetItems" style="display:none;"></div>
+      </div>
+
+      <div>
+        <p class="section-title">✏️ Set a Budget Limit</p>
+        <div class="form-card" style="margin:0; padding:1.5rem;">
+          <div class="form-grid">
+
+            <div class="form-group full-width">
+              <label for="budgetCategory">Category *</label>
+              <select id="budgetCategory">
+                <option value="">— Select Category —</option>
+                <option value="Food">🍔 Food</option>
+                <option value="Travel">🚌 Travel</option>
+                <option value="Rent">🏠 Rent</option>
+                <option value="Shopping">🛍️ Shopping</option>
+                <option value="Health">💊 Health</option>
+                <option value="Education">📚 Education</option>
+                <option value="Entertainment">🎬 Entertainment</option>
+                <option value="Other">📦 Other</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="budgetLimit">Monthly Limit (₹) *</label>
+              <input type="number" id="budgetLimit" placeholder="e.g. 3000" min="0" />
+            </div>
+
+            <div class="form-group full-width">
+              <button class="btn-primary" onclick="saveBudget()">💾 Save Budget</button>
+            </div>
+
+            <div class="form-group full-width">
+              <div class="alert" id="budgetAlert"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="page-header" style="margin-top:3rem;">
+      <h1>👥 User Accounts</h1>
+      <p>Manage app users. Uses the <code>/users</code> API (a separate in-memory database).</p>
+    </div>
+
+    <div id="spinner2" class="spinner"></div>
+    <div class="users-grid" id="usersGrid" style="display:none;"></div>
+
+    <p class="section-title">➕ Add a New User</p>
+    <div class="form-card">
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label for="userName">Full Name *</label>
+          <input type="text" id="userName" placeholder="e.g. Ravi Sharma" />
+        </div>
+
+        <div class="form-group">
+          <label for="userEmail">Email Address *</label>
+          <input type="email" id="userEmail" placeholder="e.g. ravi@email.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="userJoined">Joined Date *</label>
+          <input type="date" id="userJoined" />
+        </div>
+
+        <div class="form-group full-width">
+          <button class="btn-primary" onclick="addUser()">👤 Add User</button>
+        </div>
+
+        <div class="form-group full-width">
+          <div class="alert" id="userAlert"></div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    <p>Smart Expense Tracker &copy; 2025 &nbsp;|&nbsp; Made with  using HTML, CSS, JS &amp; Flask</p>
+  </footer>
+
+  <script src="js/budget.js"></script>
+</body>
+</html>
